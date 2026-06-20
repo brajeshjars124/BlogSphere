@@ -18,13 +18,15 @@ const app = express();
 const PORT = process.env.PORT;
  
 mongoose
-  .connect( process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/blogify')
+  .connect( process.env.MONGO_URL )
   .then((e) => console.log("Connected to MongoDB"));
 
 
 app.use(cors({
   origin: process.env.FRONTEND_URL , // Your React Vite development server URL
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 
