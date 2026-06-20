@@ -21,9 +21,9 @@ export default function SignUp() {
       });
 
       const data = await response.json();
-      if (response.ok &&data.success ) {
+      if (response.ok && data.success ) {
         alert(data.message);
-        navigate("/signin");
+        navigate("/signin"); 
       } else {
         setError(data.error || "Registration Failed"); // "User already exists"
       }
