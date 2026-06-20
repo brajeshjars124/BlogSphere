@@ -27,7 +27,7 @@ export default function AddBlog() {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await fetch('http://localhost:5678/api/blog/add-new', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blog/add-new`, {
         method: 'POST',
         headers: {
           

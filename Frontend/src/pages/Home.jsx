@@ -7,7 +7,7 @@ export default function Home() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:5678/api/blog/all')
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blog/all`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to fetch blogs');
@@ -52,7 +52,7 @@ export default function Home() {
                   <img 
                     src={
                       blog.coverImageURL
-                        ? `http://localhost:5678/public${blog.coverImageURL}`
+                        ? `${blog.coverImageURL}`
                         :'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
                     }
                     className="card-img-top object-fit-cover" 

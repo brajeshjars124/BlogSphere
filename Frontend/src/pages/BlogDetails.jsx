@@ -12,7 +12,7 @@ export default function BlogDetails() {
   const [error, setError] = useState('');
 
   useEffect(()=>{
-    fetch(`http://localhost:5678/api/blog/${blogId}`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blog/${blogId}`)
       .then((response)=>{
         if (!response.ok) {
           throw new Error('Article not found');
@@ -35,7 +35,7 @@ export default function BlogDetails() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5678/api/blog/comment/${blogId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blog/comment/${blogId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ export default function BlogDetails() {
       </div>
 
       <img
-        src={`http://localhost:5678/public${blog.coverImageURL}`}
+        src={blog.coverImageURL}
         alt={blog.title}
         className="img-fluid rounded mb-4 w-100 object-fit-cover"
         style={{ maxHeight: '400px' }}
