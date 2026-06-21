@@ -51,8 +51,7 @@ userSchema.pre("save", function (next) {
 });
 
 userSchema.static("matchPasswordAndGenerateToken", async function( email, password ){
-  const user = await this.findOne({ email });
-  // console.log(user);
+  const user = await this.findOne({email});
   if(!user)  throw new Error("User Not Found");
 
   const salt = user.salt;

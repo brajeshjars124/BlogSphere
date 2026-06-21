@@ -48,7 +48,7 @@ export default function Home() {
           <div className="row row-cols-3">
             {blogs.map((blog)=>(
               <div className="col" key={blog._id}>
-                <div className="card h-100 shadow-sm border-0 position-relative">
+                <div className="div-flex card h-100 shadow-sm border-0 position-relative ">
                   <img 
                     src={
                       blog.coverImageURL

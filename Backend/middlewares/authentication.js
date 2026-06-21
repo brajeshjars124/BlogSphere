@@ -10,7 +10,6 @@ function checkForAuthenticationCookie(cookieName){
     }
 
     token = authorizationHeaderValue.split(" ")[1];
-    console.log("Token from header", token);
 
     try{
       const userPayload = validateToken( token );

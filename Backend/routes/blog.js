@@ -1,11 +1,9 @@
-// require("dotenv").config();
 const Router = require("express");
 const multer = require("multer");
 
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-// const path = require("path")
 
 const Blog = require('../models/blog');
 const Comment = require('../models/comment');
@@ -112,14 +110,12 @@ router.post('/add-new',  upload.single("coverImage"), async (req, res) =>{
       return res.status(400).json({ error: "Title and content are required" });
     }
 
-    console.log("1. FILENAME ON DISK IS:", req.file.filename);
     const blog = await Blog.create({
       title,
       content,
       coverImageURL: req.file.path, 
       createdBy: req.user._id,
     });
-    console.log("2. PATH SAVED IN DATABASE IS:", blog.coverImageURL);
     return res.status(200).json({success: true, message: "succecssfully added new blog"});
 });
 

@@ -20,9 +20,10 @@ export default function SignIn({setUser}) {
 
       if (response.ok && data.success) {
         localStorage.setItem('token', data.token);
+        setUser(data.user);
         localStorage.setItem('user', JSON.stringify(data.user));
 
-        setUser(data.user);
+        
       } else {
         setError(data.error || 'Something went wrong');
         

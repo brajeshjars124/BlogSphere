@@ -76,7 +76,7 @@ export default function Navbar({user, onLogOut, error}) {
                         href="#"
                         tabIndex="-1"
                         aria-disabled="true"
-                        >Disabled
+                        >
                         </Link>
                     </li>
                 </ul>
